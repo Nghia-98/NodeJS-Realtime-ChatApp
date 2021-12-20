@@ -1,0 +1,25 @@
+{
+  "name": "nodejs-realtime-chatapp",
+  "version": "1.0.0",
+  "description": "Nodejs chat app, messenger, video call, send file, ...",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nghia-98/NodeJS-Realtime-ChatApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nghia-98/NodeJS-Realtime-ChatApp/issues"
+  },
+  "homepage": "https://github.com/Nghia-98/NodeJS-Realtime-ChatApp#readme",
+  "dependencies": {
+    "express": "^4.17.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
