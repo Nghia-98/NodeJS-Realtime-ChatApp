@@ -1,8 +1,8 @@
-var express = require('express');
+import express from 'express';
 
-var app = express();
+let app = express();
 
-var port = 8080;
+const port = 8080;
 
 app.get('/', (req, res) => {
   res.send('<h1> Server Nodejs Chat App is running now!!! <h1/>');
