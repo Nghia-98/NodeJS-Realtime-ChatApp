@@ -2,6 +2,8 @@ import express from 'express';
 
 let app = express();
 
+app.use(express.json());
+
 const port = 8080;
 
 app.get('/', (req, res) => {
