@@ -1,8 +1,10 @@
 import express from 'express';
 require('colors');
 import dotenv from 'dotenv';
+import createError from 'http-errors';
 
 import connectDB from './config/connectDB';
+import { notFound, defaultErrorHandler } from './middlewares/error.middleware';
 import ContactModel from './models/contact.model';
 
 let app = express();
@@ -20,7 +22,7 @@ app.get('/', (req, res) => {
   res.send('<h1> Server Nodejs Chat App is running now!!! <h1/>');
 });
 
-app.get('/test-DB', async (req, res) => {
+app.get('/test-DB', async (req, res, next) => {
   try {
     let item = { userId: 'abc', contactId: 'cba' };
 
@@ -33,6 +35,15 @@ app.get('/test-DB', async (req, res) => {
     console.log(error);
   }
 });
+
+app.get('/test-errorHandler', (req, res, next) => {
+  const err = createError(505, 'Error created for test');
+  next(err);
+});
+
+// Use error handler middlewares
+app.use(notFound);
+app.use(defaultErrorHandler);
 
 app.listen(PORT, () => {
   console.log(`Sever is running on port ${PORT}`.yellow.bold);
